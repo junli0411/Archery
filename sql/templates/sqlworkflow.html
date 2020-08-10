@@ -12,7 +12,8 @@
             </select>
         </div>
         <div class="form-group">
-            <select id="instance_id" class="form-control selectpicker">
+            <select id="instance_id" class="form-control selectpicker"
+                    data-live-search="true">
                 <option value="" selected="selected">实例</option>
                 {% for ins in instance %}
                     <option value="{{ ins.id }}">{{ ins.instance_name }}</option>
@@ -20,7 +21,8 @@
             </select>
         </div>
         <div class="form-group">
-            <select id="group_id" class="form-control selectpicker">
+            <select id="group_id" class="form-control selectpicker"
+                    data-live-search="true">
                 <option value="" selected="selected">组</option>
                 {% for rgp in resource_group %}
                     <option value="{{ rgp.group_id }}">{{ rgp.group_name }}</option>
@@ -68,7 +70,7 @@
     </div>
 {% endblock content %}
 {% block js %}
-    {% load staticfiles %}
+    {% load static %}
     <link href="{% static 'daterangepicker/css/daterangepicker.css' %}" rel="stylesheet" type="text/css"/>
     <script src="{% static 'daterangepicker/js/moment.min.js' %}"></script>
     <script src="{% static 'daterangepicker/js/daterangepicker.js' %}"></script>
@@ -157,8 +159,8 @@
                             navStatus: $("#navStatus").val(),
                             instance_id: $("#instance_id").val(),
                             group_id: $("#group_id").val(),
-                            start_date:$("#start_date").val(),
-                            end_date:$("#end_date").val(),
+                            start_date: $("#start_date").val(),
+                            end_date: $("#end_date").val(),
                             search: params.search
                         }
                     },
